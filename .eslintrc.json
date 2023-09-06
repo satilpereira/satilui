@@ -1,0 +1,6 @@
+{
+  "extends": ["next", "prettier", "next/core-web-vitals"],
+  "rules": {
+    "react-hooks/rules-of-hooks": "off" // Checks rules of Hooks
+  }
+}
