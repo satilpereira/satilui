@@ -1,6 +1,6 @@
 'use client';
 
-import React, { FC, ReactNode, useState, useEffect } from 'react';
+import React, { FC, useState, useEffect } from 'react';
 
 interface Props {
   className?: string;
@@ -46,11 +46,9 @@ const Typewritter: FC<Props> = (props) => {
       {displayedText}{' '}
       <span
         aria-hidden
-        className={`pointer-events-none bg-black ${
-          blink ? 'opacity-100' : 'opacity-0'
-        }`}
+        className={`pointer-events-none ${blink ? 'opacity-100' : 'opacity-0'}`}
       >
-        |
+        _
       </span>
     </div>
   );

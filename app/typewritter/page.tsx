@@ -11,7 +11,7 @@ const page = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   return (
-    <article className='flex flex-col gap-4'>
+    <article className='mx-auto flex w-full max-w-4xl flex-col gap-4 rounded-lg border border-dashed p-4'>
       <div className='space-y-2'>
         <h1 className='text-4xl font-bold'>Typewritter component</h1>
         <p className='text-lg text-gray-700'>
@@ -20,14 +20,16 @@ const page = () => {
       </div>
       <form className='w-full max-w-sm space-y-4'>
         <fieldset className='flex flex-row gap-4'>
-          <label htmlFor='speed'>Speed:</label>
+          <label htmlFor='speed'>Time between digits (ms):</label>
           <input
             className='w-full rounded-md border'
             type='number'
             id='speed'
             name='speed'
             step={4}
-            value={speed}
+            min={0}
+            max={1000}
+            value={speed || 100}
             onChange={(e) => {
               setSpeed((speed) => Number(e.target.value));
             }}
@@ -56,12 +58,13 @@ const page = () => {
       >
         Test
       </button>
+      <div>See results below:</div>
       <div
         key={key.key}
         className='w-full max-w-sm rounded-lg border border-dashed p-4'
       >
         {isVisible && (
-          <Typewritter textSpeed={speed}>{printedText}</Typewritter>
+          <Typewritter textSpeed={speed || 100}>{printedText}</Typewritter>
         )}
       </div>
     </article>
