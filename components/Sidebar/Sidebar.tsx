@@ -9,7 +9,7 @@ const components = [{ name: 'Typewritter', href: '/typewritter' }];
 const Sidebar = () => {
   const [open, setOpen] = useState(false);
   return (
-    <nav>
+    <nav className='h-full'>
       <div
         className='float-right h-[48px] w-[48px] px-[9px] py-[14px] text-4xl'
         onClick={() => {
@@ -45,7 +45,7 @@ const Sidebar = () => {
             <ul>
               {Object.values(components).map((item) => {
                 return (
-                  <li>
+                  <li key={item.name}>
                     <Link key={item.name} href={item.href}>
                       {item.name}
                     </Link>

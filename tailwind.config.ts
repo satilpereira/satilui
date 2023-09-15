@@ -37,6 +37,10 @@ const config: Config = {
           900: '#04020f',
         },
       },
+      gridTemplateColumns: {
+        // Simple 16 column grid
+        main: 'auto 1fr',
+      },
     },
   },
   plugins: [],

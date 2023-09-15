@@ -1,6 +1,7 @@
 import '@styles/globals.css';
 import { Montserrat } from 'next/font/google';
 import Sidebar from '@components/Sidebar/Sidebar';
+import Navbar from '@components/Navbar/Navbar';
 
 const montserrat = Montserrat({
   weight: ['200', '400', '700', '900'],
@@ -30,12 +31,13 @@ export const metadata = {
 const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html lang='pt-BR' className={montserrat.className}>
-      <body>
-        <main className='bg-darkindigo-700 flex flex-row text-gray-100'>
-          <aside className='h-screen border-r'>
+      <body className='from-darkindigo-800 flex h-full min-h-screen flex-col bg-gradient-radial to-zinc-900 text-lg text-gray-100'>
+        <Navbar />
+        <main className='grid-cols-main grid h-screen'>
+          <aside className='border-electric-700 h-full w-fit border-r'>
             <Sidebar />
           </aside>
-          <div className='m-4 w-full rounded-lg p-4'>{children}</div>
+          <div className='m-4 rounded-lg p-4'>{children}</div>
         </main>
       </body>
     </html>
