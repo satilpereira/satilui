@@ -11,18 +11,16 @@ const page = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   return (
-    <article className='mx-auto flex w-full max-w-4xl flex-col gap-4 rounded-lg border border-dashed p-4'>
+    <article className='mx-auto flex w-full max-w-4xl flex-col gap-4 rounded-lg border border-dashed p-8 shadow-lg'>
       <div className='space-y-2'>
         <h1 className='text-4xl font-bold'>Typewritter component</h1>
-        <p className='text-lg text-gray-700'>
-          See your text being typed in real time
-        </p>
+        <p className='text-lg'>See your text being typed in real time</p>
       </div>
       <form className='w-full max-w-sm space-y-4'>
         <fieldset className='flex flex-row gap-4'>
           <label htmlFor='speed'>Time between digits (ms):</label>
           <input
-            className='w-full rounded-md border'
+            className='w-full rounded-md border bg-inherit p-4'
             type='number'
             id='speed'
             name='speed'
@@ -31,16 +29,17 @@ const page = () => {
             max={1000}
             value={speed || 100}
             onChange={(e) => {
-              setSpeed((speed) => Number(e.target.value));
+              setSpeed(() => Number(e.target.value));
             }}
           />
         </fieldset>
         <fieldset className='flex flex-col gap-4'>
           <label htmlFor='speed'>Text:</label>
           <textarea
-            className='w-full rounded-md border'
+            className='w-full rounded-md border bg-inherit p-4'
             id='text'
             name='text'
+            placeholder='Type something here ...'
             value={text}
             onChange={(e) => {
               setText((text) => e.target.value);
@@ -49,7 +48,7 @@ const page = () => {
         </fieldset>
       </form>
       <button
-        className='w-full max-w-sm border'
+        className='w-full max-w-sm rounded-md border'
         onClick={() => {
           setKey({ key: Math.random() });
           setPrintedText(text);

@@ -31,13 +31,11 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html lang='pt-BR' className={montserrat.className}>
       <body>
-        <main className='flex flex-row'>
+        <main className='bg-darkindigo-700 flex flex-row text-gray-100'>
           <aside className='h-screen border-r'>
             <Sidebar />
           </aside>
-          <div className='m-4 w-full rounded-lg border border-dashed p-4'>
-            {children}
-          </div>
+          <div className='m-4 w-full rounded-lg p-4'>{children}</div>
         </main>
       </body>
     </html>
