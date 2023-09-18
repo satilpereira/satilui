@@ -31,13 +31,16 @@ export const metadata = {
 const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html lang='pt-BR' className={montserrat.className}>
-      <body className='from-darkindigo-800 flex h-full min-h-screen flex-col bg-gradient-radial to-zinc-900 text-lg text-gray-100'>
+      <body className='flex h-full min-h-screen flex-col bg-gradient-radial from-darkindigo-800 to-zinc-900 bg-fixed bg-no-repeat text-lg text-gray-100'>
         <Navbar />
-        <main className='grid-cols-main grid h-screen'>
-          <aside className='border-electric-700 h-full w-fit border-r'>
-            <Sidebar />
-          </aside>
-          <div className='m-4 rounded-lg p-4'>{children}</div>
+        {/* layout-hack */}
+        <div className='h-20 w-full'></div>
+        <aside className='minus-nav fixed top-20 w-64 border-r border-electric-700'>
+          <Sidebar />
+        </aside>
+        <main className='grid h-screen grid-cols-main'>
+          <div className='w-64'></div>
+          <div className='rounded-lg p-4 pt-16'>{children}</div>
         </main>
       </body>
     </html>

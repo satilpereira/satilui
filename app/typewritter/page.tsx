@@ -3,6 +3,13 @@
 import Typewritter from '@components/Typewritter/Typewritter';
 import { useState } from 'react';
 import TwCodeBlock from '@components/Typewritter/TwCodeBlock';
+import { Source_Code_Pro } from 'next/font/google';
+
+const sourceCodePro = Source_Code_Pro({
+  weight: ['400'],
+  subsets: ['latin'],
+  display: 'swap',
+});
 
 const page = () => {
   const [text, setText] = useState('');
@@ -12,10 +19,10 @@ const page = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   return (
-    <article className='mx-auto flex w-full max-w-7xl flex-col rounded-lg p-8'>
+    <article className='mx-auto flex w-full max-w-7xl flex-col rounded-lg px-8'>
       <div className='space-y-8'>
         <h1 className=' text-xl font-bold md:text-6xl'>
-          <span className='from-electric-400 bg-gradient-to-r to-pink-500 bg-clip-text text-transparent '>
+          <span className='bg-gradient-to-r from-electric-400 to-pink-500 bg-clip-text text-transparent '>
             Typewritter
           </span>
           <span> Component</span>
@@ -38,7 +45,7 @@ const page = () => {
             <fieldset className='flex flex-row items-center gap-4'>
               <label htmlFor='speed'>Speed:</label>
               <select
-                className='bg-darkindigo-700 w-full rounded-md border px-4 py-1 active:rounded-b-none active:rounded-t-md'
+                className='w-full rounded-md border bg-darkindigo-700 px-4 py-1 active:rounded-b-none active:rounded-t-md'
                 id='speed'
                 name='speed'
                 value={speed || 100}
@@ -56,7 +63,7 @@ const page = () => {
             <fieldset className='flex flex-col gap-4'>
               <label htmlFor='speed'>Text:</label>
               <textarea
-                className='bg-darkindigo-700 w-full rounded-md border p-4'
+                className='w-full rounded-md border bg-darkindigo-700 p-4'
                 id='text'
                 name='text'
                 placeholder='Type something here ...'
@@ -68,7 +75,7 @@ const page = () => {
             </fieldset>
           </form>
           <button
-            className='bg-darkindigo-700 w-full rounded-md border'
+            className='w-full rounded-md border bg-darkindigo-700'
             onClick={() => {
               setKey({ key: Math.random() });
               setPrintedText(text);
@@ -80,7 +87,7 @@ const page = () => {
           <div>See results below:</div>
           <div
             key={key.key}
-            className='w-fullrounded-lg bg-darkindigo-700 rounded-md border border-dashed p-4'
+            className='w-fullrounded-lg rounded-md border border-dashed bg-darkindigo-700 p-4'
           >
             {isVisible && (
               <Typewritter textSpeed={speed || 100}>{printedText}</Typewritter>
@@ -112,8 +119,10 @@ const page = () => {
           * The only prop really needed is the children, as the others have
           default values if not inserted
         </p>
-        <div className='mt-8 text-sm'>
-          <TwCodeBlock />
+        <div className={sourceCodePro.className}>
+          <div className='mt-8 text-sm'>
+            <TwCodeBlock />
+          </div>
         </div>
       </div>
     </article>

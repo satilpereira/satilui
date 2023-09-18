@@ -2,33 +2,44 @@
 @tailwind components;
 @tailwind utilities;
 
-.my-grad {
-  background-size: 100% 100%;
-  background-position:
-    0px 0px,
-    0px 0px,
-    0px 0px,
-    0px 0px,
-    0px 0px,
-    0px 0px,
-    0px 0px,
-    0px 0px,
-    0px 0px,
-    0px 0px,
-    0px 0px;
-  background-image: radial-gradient(
-      18% 28% at 24% 50%,
-      #3018476e 7%,
-      #073aff00 100%
-    ),
-    radial-gradient(18% 28% at 18% 71%, #4c00fc54 6%, #073aff00 100%),
-    radial-gradient(70% 53% at 36% 76%, #10093c 5%, #073aff00 100%),
-    radial-gradient(42% 53% at 15% 94%, #522dcdff 45%, #073aff00 100%),
-    radial-gradient(42% 53% at 34% 72%, #100d16ff 1%, #073aff00 100%),
-    radial-gradient(18% 28% at 35% 87%, #7700008f 9%, #073aff00 100%),
-    radial-gradient(31% 43% at 7% 98%, #10093c 53%, #073aff00 100%),
-    radial-gradient(21% 37% at 72% 23%, #14051959 47%, #073aff00 100%),
-    radial-gradient(35% 56% at 91% 74%, #8a4fff99 1%, #073aff00 100%),
-    radial-gradient(74% 86% at 67% 38%, #100d16c4 33%, #073aff00 100%),
-    linear-gradient(125deg, #522dcdff 1%, #4c00fcff 100%);
+.minus-nav {
+  height: calc(100dvh - 80px);
+}
+
+body {
+  @apply overflow-y-scroll;
+}
+
+:root {
+  --primary: #504f5344;
+  --secondary: #12121344;
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--secondary) var(--primary);
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  @apply w-2;
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--primary);
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--secondary);
+}
+
+@layer components {
+  .glassmorphism {
+    /* From https://css.glass */
+    background: rgba(0, 0, 0, 0.12);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    /* -webkit-backdrop-filter: blur(10px); */
+  }
 }
