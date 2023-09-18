@@ -12,7 +12,7 @@ const Navbar = () => {
       </Link>
       <Link
         className='text-5xl text-white'
-        href={'https://github.com/satilpereira'}
+        href={'https://github.com/satilpereira/satilui'}
         target='_blank'
       >
         <FaGithubSquare />
