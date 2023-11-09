@@ -1,5 +1,4 @@
 import React from 'react';
-import Image from 'next/image';
 import Logo from '@components/Logo/Logo';
 import Link from 'next/link';
 import { FaGithubSquare } from 'react-icons/fa';
